@@ -21,7 +21,8 @@ pnpm dev
 
 `pnpm run sdk` installs and builds the SDK submodule, and `pnpm dev` serves the
 simulator. Open `http://127.0.0.1:5173`, turn on **Settings → Developer → Developer mode**,
-and run `halone dev` from your app's folder.
+and run `halone dev` from your app's folder (the command comes from
+[`@halone/cli`](./cli)).
 
 ## Using it
 
