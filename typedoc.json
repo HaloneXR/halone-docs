@@ -1,0 +1,23 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "node_modules/@halone/sdk/dist/index.d.ts"
+  ],
+  "tsconfig": "tsconfig.json",
+  "plugin": [
+    "typedoc-plugin-markdown",
+    "typedoc-vitepress-theme"
+  ],
+  "out": "docs/web/reference",
+  "docsRoot": "docs",
+  "readme": "none",
+  "excludeExternals": false,
+  "externalPattern": [],
+  "hidePageHeader": true,
+  "hideBreadcrumbs": false,
+  "useCodeBlocks": true,
+  "sanitizeComments": true,
+  "disableSources": true,
+  "githubPages": false,
+  "name": "@halone/sdk"
+}
