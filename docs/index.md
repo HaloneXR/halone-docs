@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: Halone
-  text: Build apps for XREAL glasses
+  text: Build apps for XR glasses
   tagline: Halone is an XR environment that runs on an Android phone and shows windows floating around you in the glasses. Write apps for it as web pages or as native Android plugins.
   image:
     src: /logo.png
