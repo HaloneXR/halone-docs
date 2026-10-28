@@ -19,6 +19,7 @@ const webGuide: DefaultTheme.SidebarItem[] = [
       { text: "The halone CLI", link: "/web/cli" },
       { text: "The simulator", link: "/web/simulator" },
       { text: "How the bridge works", link: "/web/bridge" },
+      { text: "Versions", link: "/versions" },
     ],
   },
   {
@@ -53,6 +54,7 @@ const nativeGuide: DefaultTheme.SidebarItem[] = [
     items: [
       { text: "Getting started", link: "/native/getting-started" },
       { text: "Plugins and sessions", link: "/native/concepts" },
+      { text: "Versions", link: "/versions" },
     ],
   },
   {
