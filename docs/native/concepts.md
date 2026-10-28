@@ -24,9 +24,10 @@ with hundreds of entries keeps most of them out of the launcher. The list is
 sent without icons, and an icon is fetched only when something shows it;
 `iconVersion` tells the shell when to fetch it again.
 
-The provider may run while the glasses are not worn too:
-`onEnvironmentStarted` and `onEnvironmentStopped` say when the
-environment starts and stops, and `settings` holds the wearer's values for the
+Halone binds the provider while the environment runs, and lets go of it
+when the environment stops. `onEnvironmentStarted` and `onEnvironmentStopped`
+mark that span; the service itself can outlive it, if Android keeps it or the
+plugin's own activities start it. `settings` holds the wearer's values for the
 settings the plugin declares; see
 [Settings and the environment](./recipes/settings).
 
