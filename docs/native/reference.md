@@ -1,10 +1,10 @@
 # API reference: dev.halone.plugin
 
-`dev.halone:plugin-sdk:0.2.0`, package `dev.halone.plugin`. The sources are in
+`dev.halone:plugin-sdk:0.3.0`, package `dev.halone.plugin`. The sources are in
 [halone-sdk](https://github.com/HaloneXR/halone-sdk/tree/main/android/plugin-sdk).
 
 ```kotlin
-implementation("dev.halone:plugin-sdk:0.2.0")
+implementation("dev.halone:plugin-sdk:0.3.0")
 ```
 
 ## PanelProviderService

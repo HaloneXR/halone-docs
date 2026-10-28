@@ -9,7 +9,7 @@
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
-    "@halone/sdk": "0.2.0",
+    "@halone/sdk": "0.3.0",
     "typedoc": "0.28.20",
     "typedoc-plugin-markdown": "4.13.1",
     "typedoc-vitepress-theme": "1.1.4",

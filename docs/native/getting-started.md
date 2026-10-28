@@ -32,7 +32,7 @@ dependencyResolutionManagement {
 
 ```kotlin [app/build.gradle.kts]
 dependencies {
-    implementation("dev.halone:plugin-sdk:0.2.0")
+    implementation("dev.halone:plugin-sdk:0.3.0")
 }
 ```
 
@@ -40,7 +40,7 @@ Or with a version catalog, as the sample does:
 
 ```toml [gradle/libs.versions.toml]
 [versions]
-haloneSdk = "0.2.0"
+haloneSdk = "0.3.0"
 
 [libraries]
 halone-plugin-sdk = { group = "dev.halone", name = "plugin-sdk", version.ref = "haloneSdk" }
@@ -79,7 +79,7 @@ The shell finds plugins by a service with the intent action
   shell can bind the service. The shell refuses a plugin whose service does not
   require it.
 - **The contract** is the version of the AIDL the plugin was built against,
-  `PluginContract.VERSION`, which is 2 in SDK 0.2.0. A plugin built for
+  `PluginContract.VERSION`, which is 2 since SDK 0.2.0. A plugin built for
   contract 2 needs a Halone that knows it, and shows as incompatible in an
   older one; one built for contract 1 keeps working, without
   [settings or the environment's start and stop](./recipes/settings).
