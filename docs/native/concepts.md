@@ -24,6 +24,12 @@ with hundreds of entries keeps most of them out of the launcher. The list is
 sent without icons, and an icon is fetched only when something shows it;
 `iconVersion` tells the shell when to fetch it again.
 
+The provider may run while the glasses are not worn too:
+`onEnvironmentStarted` and `onEnvironmentStopped` say when the
+environment starts and stops, and `settings` holds the wearer's values for the
+settings the plugin declares; see
+[Settings and the environment](./recipes/settings).
+
 ## Sessions
 
 A session is one window. There are two kinds:

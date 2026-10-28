@@ -26,6 +26,7 @@ needs; the [generated reference](./reference/) has every type.
 | `system.info()` | | [`SystemInfo`](./reference/interfaces/SystemInfo): platform (`simulator` or `android`), Halone's version, protocol version, the glasses' name, field of view and resolution |
 | `system.ping()` | | The round trip to the shell, in milliseconds |
 | `system.battery()` | | [`Battery`](./reference/interfaces/Battery): `level` from 0 to 1, `charging` |
+| `display.state()` | | [`DisplayState`](./reference/interfaces/DisplayState): whether the environment runs, in 3D or 2D, at what refresh rate |
 | `windows.self()` | | [`WindowInfo`](./reference/interfaces/WindowInfo) of the caller |
 | `windows.setTitle(title)` | | |
 | `windows.resize(widthPx, heightPx, anchor?)` | | The size it got |
@@ -69,8 +70,9 @@ needs; the [generated reference](./reference/) has every type.
 
 The client also has `browser` (tabs and navigation), `history`, `bookmarks`,
 `downloads`, `launcher`, `plugins`, `status`, `input`, `settings`,
-`apps.uninstall`, `files.requestAccess` and the menu overlay's
-`menu.current`, `rendered` and `choose`. Those are for Halone's own apps, and
+`apps.uninstall`, `files.requestAccess`, `display.restart`,
+`system.shareLog` and the menu overlay's `menu.current`, `rendered` and
+`choose`. Those are for Halone's own apps, and
 fail with `permission-denied` in any other.
 
 ## Events for apps
@@ -81,6 +83,7 @@ fail with `permission-denied` in any other.
 | `window.fileOpened` | | `{ path }` |
 | `window.routed` | | `{ route }` |
 | `system.batteryChanged` | | [`Battery`](./reference/interfaces/Battery) |
+| `display.changed` | | [`DisplayState`](./reference/interfaces/DisplayState) |
 | `media.changed` | | [`MediaState`](./reference/interfaces/MediaState), to the window that owns the player |
 | `socket.data`, `socket.closed` | | Handled by [`TcpSocket`](./reference/classes/TcpSocket) |
 | `windows.changed` | `windows` | [`WindowInfo`](./reference/interfaces/WindowInfo)`[]` |

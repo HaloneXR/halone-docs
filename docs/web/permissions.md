@@ -27,7 +27,8 @@ try {
 
 Every app may, with no permission:
 
-- know about the system: `system.info`, `system.ping`, `system.battery`
+- know about the system: `system.info`, `system.ping`, `system.battery`,
+  `display.state`
 - manage its own window: `windows.self`, `setTitle`, `resize`,
   `setSizeLimits`, `setStereoRegion`, `setAutoHide`, `openedFile`, `route`,
   and `close` and `setPinned` for itself only
@@ -40,7 +41,8 @@ Every app may, with no permission:
 
 It also hears the events about itself: `window.focusChanged`,
 `window.fileOpened`, `window.routed`, `media.changed`,
-`system.batteryChanged`, `socket.data` and `socket.closed`.
+`system.batteryChanged`, `display.changed`, `socket.data` and
+`socket.closed`.
 
 ## The permissions
 
@@ -58,6 +60,7 @@ It also hears the events about itself: `window.focusChanged`,
 ## Never available
 
 Settings, the browser's tabs, history, bookmarks and downloads, the launcher,
-plugins and the dock's status items are for Halone's own apps. The client has
+plugins, the dock's status items, restarting the display and sharing Halone's
+log are for Halone's own apps. The client has
 methods for them (`halone.settings`, `halone.browser`, and so on), and calling
 them from a third-party app fails with `permission-denied`.

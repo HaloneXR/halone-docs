@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@halone/sdk':
-        specifier: 0.1.0
-        version: 0.1.0
+        specifier: 0.2.0
+        version: 0.2.0
       typedoc:
         specifier: 0.28.20
         version: 0.28.20(typescript@5.9.3)
@@ -289,8 +289,8 @@ packages:
   '@gerrit0/mini-shiki@3.23.0':
     resolution: {integrity: sha512-bEMORlG0cqdjVyCEuU0cDQbORWX+kYCeo0kV1lbxF5bt4r7SID2l9bqsxJEM0zndaxpOUT7riCyIVEuqq/Ynxg==}
 
-  '@halone/sdk@0.1.0':
-    resolution: {integrity: sha512-vQ4ik0IOssCf2Wx/rijKdiVLj9RWJWY3+9JGVvsT/oXmVXF7IDy0WqS5R+RMf0BmPcmXpy6k1jCLeC0sYj7kiQ==}
+  '@halone/sdk@0.2.0':
+    resolution: {integrity: sha512-DcHLmk1na3y0xqDWjcErdU/dha4uZBAq2EINQ7BO0q+QopUj6NoaEGhRInWOBqlEy7vOwFLhoswHeTNjainI9g==}
 
   '@iconify-json/simple-icons@1.2.100':
     resolution: {integrity: sha512-536pN2RCEQyy5bYwzayrs4e9egr8cmtVcbdSHLaQl/ULUsihzn1eZ0+Hhn50zgz9cbEotiynKsKQSEjFJ7qKmw==}
@@ -1149,7 +1149,7 @@ snapshots:
       '@shikijs/types': 3.23.0
       '@shikijs/vscode-textmate': 10.0.2
 
-  '@halone/sdk@0.1.0': {}
+  '@halone/sdk@0.2.0': {}
 
   '@iconify-json/simple-icons@1.2.100':
     dependencies:
