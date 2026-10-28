@@ -1,10 +1,10 @@
 # API reference: dev.halone.plugin
 
-`dev.halone:plugin-sdk:0.1.0`, package `dev.halone.plugin`. The sources are in
+`dev.halone:plugin-sdk:0.3.0`, package `dev.halone.plugin`. The sources are in
 [halone-sdk](https://github.com/HaloneXR/halone-sdk/tree/main/android/plugin-sdk).
 
 ```kotlin
-implementation("dev.halone:plugin-sdk:0.1.0")
+implementation("dev.halone:plugin-sdk:0.3.0")
 ```
 
 ## PanelProviderService
@@ -31,8 +31,14 @@ Only the shell may call it: every call is checked against the permission.
 | `fun setStatusItem(item: StatusItem)` | Shows `item` in the dock, or replaces the one with its id. Kept while the plugin runs; set before the shell connects, it appears once it does. Main thread. |
 | `fun removeStatusItem(id: String)` | Removes a status item. |
 | `open fun onStatusItemClicked(id: String)` | The wearer clicked status item `id`. Main thread. |
+| `val settings: Bundle` | The wearer's values for the settings the plugin declares under `PluginContract.META_SETTINGS`, by key: `Boolean`, `Double` or `String`. Empty until the shell connects. Contract 2. |
+| `open fun onSettingsChanged(settings: Bundle)` | `settings` arrived or changed: when the shell connects, and after every change. Main thread. Contract 2. |
+| `val environmentRunning: Boolean` | Whether the environment is running on the glasses, as far as the plugin was told. Contract 2. |
+| `open fun onEnvironmentStarted()` | The environment started on the glasses. Main thread. Contract 2. |
+| `open fun onEnvironmentStopped()` | The environment stopped, or the shell went away without saying so, as when Halone is killed. Undo here whatever `onEnvironmentStarted` did. Main thread. Contract 2. |
 
-`onBind` is final. On unbind and on destroy, every open session is closed.
+`onBind` is final. On unbind and on destroy, every open session is closed,
+and `onEnvironmentStopped` runs if the environment was running.
 
 ## PluginApp
 
@@ -224,10 +230,11 @@ What a plugin and the shell agree on outside the AIDL.
 
 | Constant | Value | |
 |---|---|---|
-| `VERSION` | `1` | Raised whenever a method is added to the AIDL; the shell binds plugins from 1 up to its own. |
+| `VERSION` | `2` | Raised whenever a method is added to the AIDL; the shell binds plugins from 1 up to its own. |
 | `ACTION_PANEL_PROVIDER` | `"dev.halone.action.PANEL_PROVIDER"` | The intent action of a plugin's `PanelProviderService`. |
 | `PERMISSION_BIND` | `"dev.halone.permission.BIND_PANEL_PROVIDER"` | Defined by the shell, signature-level; a plugin's service must require it. |
 | `META_CONTRACT` | `"dev.halone.plugin.CONTRACT"` | Service meta-data: the contract version the plugin was built against. |
+| `META_SETTINGS` | `"dev.halone.plugin.SETTINGS"` | Service meta-data, from contract 2: a raw JSON resource listing the plugin's settings; see [Settings and the environment](./recipes/settings). |
 | `DENSITY_DPI` | `160` | Windows are laid out at this density, so one dp is one window pixel. |
 
 It also holds the `Bundle` keys of an app's description and a status item
@@ -246,6 +253,9 @@ interface IPanelProvider {
     byte[] appIcon(String appId, int sizePx) = 3;
     IPanel open(String appId, in Bundle args, IPanelHost host) = 4;
     oneway void statusItemClicked(String id) = 5;
+    oneway void settingsChanged(in Bundle values) = 6;
+    oneway void environmentStarted() = 7;
+    oneway void environmentStopped() = 8;
 }
 
 interface IProviderHost {

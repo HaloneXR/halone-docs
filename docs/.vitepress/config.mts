@@ -30,6 +30,7 @@ const webGuide: DefaultTheme.SidebarItem[] = [
       { text: "TCP sockets", link: "/web/recipes/sockets" },
       { text: "Files", link: "/web/recipes/files" },
       { text: "Stereo and 360° video", link: "/web/recipes/media" },
+      { text: "The display", link: "/web/recipes/display" },
       { text: "Launching other apps", link: "/web/recipes/apps" },
     ],
   },
@@ -63,6 +64,10 @@ const nativeGuide: DefaultTheme.SidebarItem[] = [
       {
         text: "Status items in the dock",
         link: "/native/recipes/status-items",
+      },
+      {
+        text: "Settings and the environment",
+        link: "/native/recipes/settings",
       },
     ],
   },

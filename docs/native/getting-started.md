@@ -32,7 +32,7 @@ dependencyResolutionManagement {
 
 ```kotlin [app/build.gradle.kts]
 dependencies {
-    implementation("dev.halone:plugin-sdk:0.1.0")
+    implementation("dev.halone:plugin-sdk:0.3.0")
 }
 ```
 
@@ -40,7 +40,7 @@ Or with a version catalog, as the sample does:
 
 ```toml [gradle/libs.versions.toml]
 [versions]
-haloneSdk = "0.1.0"
+haloneSdk = "0.3.0"
 
 [libraries]
 halone-plugin-sdk = { group = "dev.halone", name = "plugin-sdk", version.ref = "haloneSdk" }
@@ -70,7 +70,7 @@ The shell finds plugins by a service with the intent action
         <intent-filter>
             <action android:name="dev.halone.action.PANEL_PROVIDER" />
         </intent-filter>
-        <meta-data android:name="dev.halone.plugin.CONTRACT" android:value="1" />
+        <meta-data android:name="dev.halone.plugin.CONTRACT" android:value="2" />
     </service>
 </application>
 ```
@@ -79,7 +79,10 @@ The shell finds plugins by a service with the intent action
   shell can bind the service. The shell refuses a plugin whose service does not
   require it.
 - **The contract** is the version of the AIDL the plugin was built against,
-  `PluginContract.VERSION`, which is 1 in SDK 0.1.0.
+  `PluginContract.VERSION`, which is 2 since SDK 0.2.0. A plugin built for
+  contract 2 needs a Halone that knows it, and shows as incompatible in an
+  older one; one built for contract 1 keeps working, without
+  [settings or the environment's start and stop](./recipes/settings).
 - The application's icon is used for the plugin's apps unless they name their
   own.
 
@@ -171,4 +174,6 @@ adb shell am broadcast -a dev.halone.DEV -p dev.halone.app --es command plugin -
 - [Plugins and sessions](./concepts): the lifecycle, input, and the two kinds
   of session
 - [Drawing with a Canvas](./recipes/canvas) and [Android views](./recipes/views)
+- [Settings and the environment](./recipes/settings): a page in Settings, and
+  work done only while the glasses are worn
 - [The API reference](./reference)
